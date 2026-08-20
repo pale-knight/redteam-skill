@@ -16,3 +16,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/changelog-Keep%20a%20Changelog-orange" alt="changelog"></a>
 </p>
+
+<p align="center">
+  🌐 <a href="README_zh.md">中文</a> ·
+  <a href="README_ja.md">日本語</a>
+</p>
