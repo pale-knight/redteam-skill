@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="assets/pale0knight.png" alt="pale0knight" width="180" />
+  <img src="assets/pale0knight.png" alt="redteam-skill" width="220" />
 </p>
-# redteam-skill
-Claude Code skill pack for authorized red team / HTB
+
+<h1 align="center">redteam-skill</h1>
+<h3 align="center">kali+Claude code Redteam skill</h3>
+
+<p align="center"><em style="font-family: Georgia, serif; font-size: 1.2em; color: #777;">Why so serious?</em></p>
