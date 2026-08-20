@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/pale0knight.png" alt="redteam-skill" width="500" />
+  <img src="assets/pale0knight.png" alt="redteam-skill" width="300" />
 </p>
 
 <h1 align="center">redteam-skill</h1>
