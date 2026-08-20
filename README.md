@@ -4,7 +4,7 @@
 
 <h1 align="center">redteam-skill</h1>
 <h3 align="center">Based on Kali+Claude code</h1>
-<h3 align="center">Semi-automated Redteam workflow · 红队半自动工作流</h3>
+<h3 align="center">Semi-automated Redteam Workflow · 红队半自动工作流</h3>
 
 <p align="center"><em style="font-family: Georgia, serif; font-size: 1.2em; color: #777;">Why so serious?</em></p>
 
