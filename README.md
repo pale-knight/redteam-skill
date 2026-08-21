@@ -49,10 +49,10 @@ skills/
 ├── service-attack/            # 服务漏洞利用
 │   ├── SKILL.md
 │   └── references/     (13)
-├── web-recon/                 # Web 攻击面测绘
+├── web-recon/                 # Web攻击面测绘
 │   ├── SKILL.md
 │   └── references/     (5)
-├── web-attack/                # Web 漏洞利用
+├── web-attack/                # Web漏洞利用
 │   ├── SKILL.md
 │   └── references/     (24)
 ├── ad-recon/                  # 域枚举
@@ -70,25 +70,25 @@ skills/
 ├── k8s/                       # 容器与集群枚举及利用
 │   ├── SKILL.md
 │   └── references/     (6)
-├── cicd/                      # CI/CD 与供应链枚举及利用
+├── cicd/                      # CI/CD与供应链枚举及利用
 │   ├── SKILL.md
 │   └── references/     (12)
 ├── phishing/                  # 钓鱼和客户端攻击
 │   ├── SKILL.md
 │   └── references/     (8)
-├── privesc-win/               # Windows 提权
+├── privesc-win/               # Windows提权
 │   ├── SKILL.md
 │   └── references/     (5)
-├── privesc-linux/             # Linux 提权
+├── privesc-linux/             # Linux提权
 │   ├── SKILL.md
 │   └── references/     (5)
-├── creds/                     # 凭据攻击,只产凭据不横向
+├── creds/                     # 凭据攻击
 │   ├── SKILL.md
 │   └── references/     (7)
-├── post/                      # 后渗透利用与 C2
+├── post/                      # 后渗透利用与C2
 │   ├── SKILL.md
 │   └── references/     (7)
-├── shell/                     # shell 稳定化
+├── shell/                     # shell稳定化
 │   ├── SKILL.md
 │   └── references/     (6)
 ├── tunnel/                    # 内网端口转发与隧道
@@ -110,12 +110,12 @@ skills/
 
 ### 模块介绍
 
-| 场景 | 入口 | 类型 | 成功条件 | 默认下一步 |
-|:---|:---|:---:|:---|:---|
-| 通用信息收集 | `/recon` | recon | 服务地图 + CVE 候选 | `/web-recon` `/ad-recon` `/service-attack` `/phishing` |
-| Web 攻击面测绘 | `/web-recon` | recon | HTTP 攻击面卡片 | `/web-attack` |
-| Web 漏洞利用 | `/web-attack` | attack | 服务器 shell 或等价 OS 执行 | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
-| 服务漏洞利用 | `/service-attack` | attack | 该服务的权限或 shell | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| 场景 | 入口 | 类型 | 功能 | 成功条件 | 默认下一步 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 通用信息收集 | `/recon` | recon | 资产扩展、主机与端口发现、服务版本识别、只读枚举、CVE 候选研判 |服务地图 + CVE候选 | `/web-recon` `/ad-recon` `/service-attack` `/phishing` |
+| 服务漏洞利用 | `/service-attack` | attack | 数据库、文件与远程访问、消息队列、DNS、网络设备与BMC等利用链 | 对应服务的foothold或shell | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| Web攻击面测绘 | `/web-recon` | recon | 指纹、路径与 API 发现、JS/sourcemap、代理缓存边界、WAF、CMS | Web攻击面卡片 | `/web-attack` |
+| Web漏洞利用 | `/web-attack` | attack | 注入、上传、LFI、SSRF/XXE/SSTI、反序列化、JWT/SAML、走私、WAF 绕过等利用链 | foothold、shell或等价OS执行 | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
 | 域枚举 | `/ad-recon` | recon | 路径 / ACL / 证书 / LAPS 卡片 | `/ad-attack` `/creds` |
 | 域利用 | `/ad-attack` | attack | 目标身份 / DA / 主机 SYSTEM | `/ad-recon` `/creds` `/post` `/privesc-win` |
 | 云身份枚举 | `/cloud-recon` | recon | 云身份与信任图 | `/cloud-attack` `/k8s` |
