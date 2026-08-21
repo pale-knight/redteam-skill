@@ -38,7 +38,7 @@
 
 ### 基本架构
 
-18 个模块,每个模块为`SKILL.md`(基本方向和判断)和一个 `references/`(详细操作流程和利用链)。
+18 个模块,每个模块为`SKILL.md`(判断基本方向)和一个 `references/`(详细操作文档)。
 
 ```text
 CLAUDE.md                  # 全局规则,放进项目目录使用
@@ -106,7 +106,7 @@ skills/
     ├── modules.py             # tail / list / show / check,模块控制和收尾
     └── notes.py               # init / validate,记录文件notes.md操作
 ```
-> `references/` 内共 158 份打法文档,按分支懒加载,不计入常驻上下文。
+> `references/` 内共 158 份操作文档,按 `SKILL.md` 判断选择加载,不计入常驻上下文。
 
 
 
