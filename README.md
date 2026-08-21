@@ -38,12 +38,11 @@
 
 ### 基本架构
 
-18 个模块,每个模块为`SKILL.md`(scope + 分支入口)+ 一个 `references/`(具体打法,走到分支才按需读取,不开局全读)。
-整包安装到 `~/.claude/skills/`,全局装一次;作战目录每场行动另建。
+18 个模块,每个模块为`SKILL.md`(基本方向和判断)和一个 `references/`(详细操作流程和利用链)。
 
 ```text
-skill/
-├── CLAUDE.md                  # 全局规则,放进项目目录使用
+CLAUDE.md                  # 全局规则,放进项目目录使用
+skills/
 ├── recon/                     # 通用信息收集
 │   ├── SKILL.md
 │   └── references/     (11)
@@ -95,17 +94,17 @@ skill/
 ├── tunnel/                    # 内网端口转发与隧道
 │   ├── SKILL.md
 │   └── references/     (7)
-├── edr-bypass/                # 端点防御绕过,动作被拦时切入,恢复后回原模块
+├── edr-bypass/                # AV/EDR规避
 │   ├── SKILL.md
 │   └── references/     (12)
 ├── shared/                    # 跨模块共享
-│   ├── modules.yaml           # 模块名册:合法模块名 + default_next + never_default
-│   ├── cve-enrichment.md      # 有精确版本时才走的 CVE 富化流程
-│   ├── tools.md               # 工具安装与代理配置
-│   └── wordlists.md           # 字典位置与选择
+│   ├── modules.yaml           # 模块目录
+│   ├── cve-enrichment.md      # 全Skill漏洞情报入口
+│   ├── tools.md               # 工具注册表
+│   └── wordlists.md           # 字典路径
 └── bin/
-    ├── modules.py             # tail / list / show / check,收尾时给出候选模块
-    └── notes.py               # init / validate,作战目录状态文件
+    ├── modules.py             # tail / list / show / check,模块控制和收尾
+    └── notes.py               # init / validate,记录文件notes.md操作
 ```
 > `references/` 内共 158 份打法文档,按分支懒加载,不计入常驻上下文。
 
