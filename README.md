@@ -104,7 +104,7 @@ skills/
 │   └── wordlists.md           # 字典路径
 └── bin/
     ├── modules.py             # tail / list / show / check,模块控制和收尾
-    └── notes.py               # init / validate,记录文件notes.md操作
+    └── notes.py               # init / validate,操作记录文件notes.md
 ```
 > `references/` 内共 158 份操作文档,按 `SKILL.md` 判断选择加载,不计入常驻上下文。
 
