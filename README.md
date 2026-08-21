@@ -41,7 +41,7 @@
 18 个模块,每个模块为`SKILL.md`(scope + 分支入口)+ 一个 `references/`(具体打法,走到分支才按需读取,不开局全读)。
 整包安装到 `~/.claude/skills/`,全局装一次;作战目录每场行动另建。
 
-​'''text
+​```text
 ├── CLAUDE.md                     #全局规则。放进项目目录使用
 ├── skill/
 ├── recon/                        #通用信息收集
@@ -107,7 +107,7 @@
 └── bin/                          辅助脚本
     ├── modules.py                tail / list / show / check —— 收尾时给出候选模块
     └── notes.py                  init / validate —— 作战目录状态文件
-​'''
+​```
 
 > `references/` 内共 158 份打法文档,按分支懒加载,不计入常驻上下文。
 
