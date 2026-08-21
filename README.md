@@ -41,73 +41,70 @@
 18 个模块,每个模块为`SKILL.md`(scope + 分支入口)+ 一个 `references/`(具体打法,走到分支才按需读取,不开局全读)。
 整包安装到 `~/.claude/skills/`,全局装一次;作战目录每场行动另建。
 
-​```text
-├── CLAUDE.md                     #全局规则。放进项目目录使用
-├── skill/
-├── recon/                        #通用信息收集
+skill/
+├── CLAUDE.md                  # 全局规则,放进项目目录使用
+├── recon/                     # 通用信息收集
 │   ├── SKILL.md
-│   └── references/    (11)      
-├── service-attack/               #服务漏洞利用
+│   └── references/     (11)
+├── service-attack/            # 服务漏洞利用
 │   ├── SKILL.md
-│   └── references/    (13)       
-├── web-recon/                    #Web 攻击面测绘
+│   └── references/     (13)
+├── web-recon/                 # Web 攻击面测绘
 │   ├── SKILL.md
-│   └── references/    (5)       
-├── web-attack/                   #Web 漏洞利用
+│   └── references/     (5)
+├── web-attack/                # Web 漏洞利用
 │   ├── SKILL.md
-│   └── references/    (24)       
-├── ad-recon/                     #域枚举
+│   └── references/     (24)
+├── ad-recon/                  # 域枚举
 │   ├── SKILL.md
-│   └── references/    (5)        
-├── ad-attack/                    #域利用
+│   └── references/     (5)
+├── ad-attack/                 # 域利用
 │   ├── SKILL.md
-│   └── references/    (9)       
-├── cloud-recon/                  #AWS/Azure/GCP/阿里云枚举
+│   └── references/     (9)
+├── cloud-recon/               # AWS/Azure/GCP/阿里云枚举
 │   ├── SKILL.md
-│   └── references/    (7)     
-├── cloud-attack/                 #云权限提升与持久化
+│   └── references/     (7)
+├── cloud-attack/              # 云权限提升与持久化
 │   ├── SKILL.md
-│   └── references/    (9)        
-├── k8s/                          #容器与集群枚举及利用
+│   └── references/     (9)
+├── k8s/                       # 容器与集群枚举及利用
 │   ├── SKILL.md
-│   └── references/    (6)       
-├── cicd/                         #CI/CD 与供应链枚举及利用
+│   └── references/     (6)
+├── cicd/                      # CI/CD 与供应链枚举及利用
 │   ├── SKILL.md
-│   └── references/    (12)      
-├── phishing/                     #钓鱼和客户端攻击
+│   └── references/     (12)
+├── phishing/                  # 钓鱼和客户端攻击
 │   ├── SKILL.md
-│   └── references/    (8)       
-├── privesc-win/                  #Windows提权
+│   └── references/     (8)
+├── privesc-win/               # Windows 提权
 │   ├── SKILL.md
-│   └── references/    (5)        
-├── privesc-linux/                #Linux提权
+│   └── references/     (5)
+├── privesc-linux/             # Linux 提权
 │   ├── SKILL.md
-│   └── references/    (5)        
-├── creds/                        #凭据攻击(只产凭据,不横向)
+│   └── references/     (5)
+├── creds/                     # 凭据攻击,只产凭据不横向
 │   ├── SKILL.md
-│   └── references/    (7)        
-├── post/                         #后渗透利用与c2
+│   └── references/     (7)
+├── post/                      # 后渗透利用与 C2
 │   ├── SKILL.md
-│   └── references/    (7)        
-├── shell/                        #shell稳定
+│   └── references/     (7)
+├── shell/                     # shell 稳定化
 │   ├── SKILL.md
-│   └── references/    (6)        
-├── tunnel/                       #内网端口转发与隧道
+│   └── references/     (6)
+├── tunnel/                    # 内网端口转发与隧道
 │   ├── SKILL.md
-│   └── references/    (7)      
-├── edr-bypass/                   端点防御绕过(横向拦截器,打完回原模块)
+│   └── references/     (7)
+├── edr-bypass/                # 端点防御绕过,动作被拦时切入,恢复后回原模块
 │   ├── SKILL.md
-│   └── references/    
-├── shared/                       跨模块共享
-│   ├── modules.yaml              模块名册:合法模块名 + default_next + never_default
-│   ├── cve-enrichment.md         有精确版本时才走的 CVE 富化流程
-│   ├── tools.md                  工具安装与代理配置
-│   └── wordlists.md              字典位置与选择
-│
-└── bin/                          辅助脚本
-    ├── modules.py                tail / list / show / check —— 收尾时给出候选模块
-    └── notes.py                  init / validate —— 作战目录状态文件
-​```
+│   └── references/     (12)
+├── shared/                    # 跨模块共享
+│   ├── modules.yaml           # 模块名册:合法模块名 + default_next + never_default
+│   ├── cve-enrichment.md      # 有精确版本时才走的 CVE 富化流程
+│   ├── tools.md               # 工具安装与代理配置
+│   └── wordlists.md           # 字典位置与选择
+└── bin/
+    ├── modules.py             # tail / list / show / check,收尾时给出候选模块
+    └── notes.py               # init / validate,作战目录状态文件
 
 > `references/` 内共 158 份打法文档,按分支懒加载,不计入常驻上下文。
 
