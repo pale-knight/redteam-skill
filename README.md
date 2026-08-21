@@ -110,6 +110,27 @@ skills/
 
 ### 模块介绍
 
+| 场景 | 入口 | 类型 | 成功条件 | 默认下一步 |
+|:---|:---|:---:|:---|:---|
+| 通用信息收集 | `/recon` | recon | 服务地图 + CVE 候选 | `/web-recon` `/ad-recon` `/service-attack` `/phishing` |
+| Web 攻击面测绘 | `/web-recon` | recon | HTTP 攻击面卡片 | `/web-attack` |
+| Web 漏洞利用 | `/web-attack` | attack | 服务器 shell 或等价 OS 执行 | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| 服务漏洞利用 | `/service-attack` | attack | 该服务的权限或 shell | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| 域枚举 | `/ad-recon` | recon | 路径 / ACL / 证书 / LAPS 卡片 | `/ad-attack` `/creds` |
+| 域利用 | `/ad-attack` | attack | 目标身份 / DA / 主机 SYSTEM | `/ad-recon` `/creds` `/post` `/privesc-win` |
+| 云身份枚举 | `/cloud-recon` | recon | 云身份与信任图 | `/cloud-attack` `/k8s` |
+| 云权限提升与持久化 | `/cloud-attack` | attack | 更高云身份或可下发 OS 的 compute | `/cloud-recon` `/k8s` `/post` `/ad-recon` |
+| 容器与集群 | `/k8s` | attack | cluster-admin / node root / 可用云身份 | `/cloud-recon` `/post` `/privesc-linux` `/creds` |
+| CI/CD 与供应链 | `/cicd` | attack | runner shell / 部署控制 / 真实云身份 | `/cloud-recon` `/privesc-linux` `/privesc-win` `/post` |
+| 钓鱼与客户端攻击 | `/phishing` | attack | host shell 或等效会话 | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| Windows 提权 | `/privesc-win` | attack | Administrator High IL 或 SYSTEM | `/creds` `/post` `/ad-recon` `/tunnel` |
+| Linux 提权 | `/privesc-linux` | attack | uid=0 root shell | `/creds` `/post` `/k8s` `/cloud-recon` |
+| 凭据攻击 | `/creds` | factory | 可用凭据（明文 / NT / cookie / key） | `/ad-recon` `/cloud-recon` `/service-attack` `/privesc-win` `/privesc-linux` `/post` |
+| 后渗透与 C2 | `/post` | post | 所选目标已验证（回连 / persist / loot / 清） | `/tunnel` `/creds` `/ad-recon` `/cloud-recon` |
+| shell 稳定化 | `/shell` | support | 可操作会话 | `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| 内网穿透 | `/tunnel` | support | 指定网段 / 端口真的通 | `/recon` `/service-attack` `/ad-recon` |
+| 端点防御绕过 | `/edr-bypass` | interceptor | 被拦动作可执行 | 回原模块（不给新候选） |
+
 
 
 
