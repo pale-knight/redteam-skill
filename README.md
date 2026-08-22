@@ -130,6 +130,11 @@ skills/
 | shell 稳定化 | `/shell` | support | 回连引导、Linux PTY、Windows ConPTY、监听管理、会话恢复、文件传输 | 可操作稳定会话 | `/privesc-win` `/privesc-linux` `/creds` `/post` |
 | 内网穿透 | `/tunnel` | support | ligolo-ng、chisel、GOST、原生转发、Dev Tunnels、多跳、备用传输 | 目标网段可达 | `/recon` `/service-attack` `/ad-recon` |
 | AV/EDR规避 | `/edr-bypass` | interceptor | 将被AV/EDR/AMSI/WDAC/PPL/内存/内核遥测的拦截变为可执行 | 被拦动作可执行 | 回原模块 |
+> `recon` 模块信息收集以确认攻击面，`attack` 模块执行攻击链获取对应控制权，`support` 模块不推进攻击链只稳固当前shell，`factory` 模块仅有`/creds` 只校验凭据，`post` 模块仅有`/post`只做收尾工作，`interceptor` 模块仅有`/edr-bypass`只在被拦截时执行，在绕过拦截之前切回原模块继续执行。
+
+
+
+
 
 
 
