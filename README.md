@@ -132,9 +132,14 @@ skills/
 | AV/EDR规避 | `/edr-bypass` | interceptor | 将被AV/EDR/AMSI/WDAC/PPL/内存/内核遥测的拦截变为可执行 | 被拦动作可执行 | 回原模块 |
 > `recon` 模块信息收集以确认攻击面，`attack` 模块执行攻击链获取对应控制权，`support` 模块不推进攻击链只稳固当前shell，`factory` 模块仅有`/creds` 只校验凭据，`post` 模块仅有`/post`只做收尾工作，`interceptor` 模块仅有`/edr-bypass`只在被拦截时执行，在绕过拦截之前切回原模块继续执行。
 
+<a id="使用说明"></a>
+## 使用说明
 
+### 前置依赖
 
-
+- **Kali Linux** — 推荐环境，工具链默认按Kali路径和`shared/tools.md` 内容安装
+- **Python 3.x** — 运行 `bin/modules.py`、`bin/notes.py`
+- **Claude Code** — 本 Skill 面向 Claude Code 设计，模块经 `/slash` 命令调用
 
 
 
