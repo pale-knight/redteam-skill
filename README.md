@@ -148,11 +148,28 @@ skills/
 
 ### 目录层级
 
-**工作目录**
+**工作目录** 
 ```text
 ~/ops/<target>/
 ├── CLAUDE.md                  # 工作规则
 ├── notes.md                   # 工作记录
-├── scans/  loot/  scripts/    #  工作产出
+└── scans/  loot/  scripts/    # 工作产出
 ```
+> 可以自己建立或者让AI自动创建.
+
+**工具目录**
+```text
+~/tools/
+├── recon/
+├── web/
+├── ad/
+...
+├── c2/
+├── edr/
+└── shell/
+```
+> 详情见`shared/tools.md`.
+
+
+
 
