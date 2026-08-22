@@ -144,7 +144,15 @@ skills/
 ### 安装
 
     git clone https://github.com/pale-knight/redteam-skill.git
-​
-> 18个模块、`shared/`和`bin/`移动到`~/.claude/skills/`skill的全局目录
+​> 把18个模块、`shared/`和`bin/`移动到`~/.claude/skills/`skill的全局目录，`CLAUDE.md`放入每个项目目录。
 
+### 目录层级
+
+**工作目录**
+```text
+~/ops/<target>/
+├── CLAUDE.md                  # 工作规则
+├── notes.md                   # 工作记录
+├── scans/  loot/  scripts/    #  工作产出
+```
 
