@@ -1,0 +1,16 @@
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.png  binary
+*.jpg  binary
+
+# 打包 / Download ZIP 不要这些
+README.md        export-ignore
+README_en.md     export-ignore
+README_ja.md     export-ignore
+assets/          export-ignore
+LICENSE          export-ignore
+.gitignore       export-ignore
+.gitattributes   export-ignore
