@@ -143,7 +143,7 @@ skills/
 
 ### 安装
 
-​​```bash
+​​```text
 git clone https://github.com/pale-knight/redteam-skill.git
 ​```
 
