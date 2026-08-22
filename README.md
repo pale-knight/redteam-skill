@@ -25,7 +25,7 @@
 <a id="关于项目"></a>
 ## 关于项目
 
-> **辅助红队工作，人工通过`/module`选择模块，工作流将取得的成果供人工研判并建议下一模块**
+> **辅助红队工作，人工通过`/module`选择模块，AI将取得的成果供人工研判并建议下一模块**
 
 本项目面向**红队工作 / 靶场 / HTB** 等场景，提供半自动红队工作流。
 
@@ -55,22 +55,22 @@ skills/
 ├── web-attack/                # Web漏洞利用
 │   ├── SKILL.md
 │   └── references/     (24)
-├── ad-recon/                  # 域枚举
+├── ad-recon/                  # AD枚举
 │   ├── SKILL.md
 │   └── references/     (5)
-├── ad-attack/                 # 域利用
+├── ad-attack/                 # AD攻击利用
 │   ├── SKILL.md
 │   └── references/     (9)
 ├── cloud-recon/               # AWS/Azure/GCP/阿里云枚举
 │   ├── SKILL.md
 │   └── references/     (7)
-├── cloud-attack/              # 云权限提升与持久化
+├── cloud-attack/              # 云控制面利用
 │   ├── SKILL.md
 │   └── references/     (9)
-├── k8s/                       # 容器与集群枚举及利用
+├── k8s/                       # 容器与集群
 │   ├── SKILL.md
 │   └── references/     (6)
-├── cicd/                      # CI/CD与供应链枚举及利用
+├── cicd/                      # CI/CD与供应链
 │   ├── SKILL.md
 │   └── references/     (12)
 ├── phishing/                  # 钓鱼和客户端攻击
@@ -91,7 +91,7 @@ skills/
 ├── shell/                     # shell稳定化
 │   ├── SKILL.md
 │   └── references/     (6)
-├── tunnel/                    # 内网端口转发与隧道
+├── tunnel/                    # 内网穿透
 │   ├── SKILL.md
 │   └── references/     (7)
 ├── edr-bypass/                # AV/EDR规避
@@ -116,20 +116,20 @@ skills/
 | 服务漏洞利用 | `/service-attack` | attack | 数据库、文件与远程访问、消息队列、DNS、网络设备与BMC等利用链 | 对应服务的foothold或shell | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
 | Web攻击面测绘 | `/web-recon` | recon | 指纹、路径与 API 发现、JS/sourcemap、代理缓存边界、WAF、CMS | Web攻击面卡片 | `/web-attack` |
 | Web漏洞利用 | `/web-attack` | attack | 注入、上传、LFI、SSRF/XXE/SSTI、反序列化、JWT/SAML、走私、WAF 绕过等利用链 | foothold、shell或等价OS执行 | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
-| 域枚举 | `/ad-recon` | recon | 路径 / ACL / 证书 / LAPS 卡片 | `/ad-attack` `/creds` |
-| 域利用 | `/ad-attack` | attack | 目标身份 / DA / 主机 SYSTEM | `/ad-recon` `/creds` `/post` `/privesc-win` |
-| 云身份枚举 | `/cloud-recon` | recon | 云身份与信任图 | `/cloud-attack` `/k8s` |
-| 云权限提升与持久化 | `/cloud-attack` | attack | 更高云身份或可下发 OS 的 compute | `/cloud-recon` `/k8s` `/post` `/ad-recon` |
-| 容器与集群 | `/k8s` | attack | cluster-admin / node root / 可用云身份 | `/cloud-recon` `/post` `/privesc-linux` `/creds` |
-| CI/CD 与供应链 | `/cicd` | attack | runner shell / 部署控制 / 真实云身份 | `/cloud-recon` `/privesc-linux` `/privesc-win` `/post` |
-| 钓鱼与客户端攻击 | `/phishing` | attack | host shell 或等效会话 | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
-| Windows 提权 | `/privesc-win` | attack | Administrator High IL 或 SYSTEM | `/creds` `/post` `/ad-recon` `/tunnel` |
-| Linux 提权 | `/privesc-linux` | attack | uid=0 root shell | `/creds` `/post` `/k8s` `/cloud-recon` |
-| 凭据攻击 | `/creds` | factory | 可用凭据（明文 / NT / cookie / key） | `/ad-recon` `/cloud-recon` `/service-attack` `/privesc-win` `/privesc-linux` `/post` |
-| 后渗透与 C2 | `/post` | post | 所选目标已验证（回连 / persist / loot / 清） | `/tunnel` `/creds` `/ad-recon` `/cloud-recon` |
-| shell 稳定化 | `/shell` | support | 可操作会话 | `/privesc-win` `/privesc-linux` `/creds` `/post` |
-| 内网穿透 | `/tunnel` | support | 指定网段 / 端口真的通 | `/recon` `/service-attack` `/ad-recon` |
-| 端点防御绕过 | `/edr-bypass` | interceptor | 被拦动作可执行 | 回原模块（不给新候选） |
+| 域枚举 | `/ad-recon` | recon | 获取用户组机器、ACL/委派、ADCS、LAPS、BloodHound、信任图等 | 域路径与 ACL 卡片 | `/ad-attack` `/creds` |
+| 域攻击利用 | `/ad-attack` | attack | Kerberos、委派、强制认证与中继、ACL 滥用、ADCS ESC 全系、dMSA、横向等攻击 | DA、等价域控制,或目标主机SYSTEM | `/ad-recon` `/creds` `/post` `/privesc-win` |
+| 云身份枚举 | `/cloud-recon` | recon | 获取AWS/Azure/GCP/阿里云的身份、IAM、信任、资源、元数据等 | 云身份、权限、信任、资源图 | `/cloud-attack` `/k8s` |
+| 云控制面利用 | `/cloud-attack` | attack | IAM 提权、身份假冒、跨账户信任、serverless、云原生持久化 | 更高云身份、账户控制,或可下发OS执行的 compute | `/cloud-recon` `/k8s` `/post` `/ad-recon` |
+| 容器与集群 | `/k8s` | attack | RBAC 滥用、secrets、kubelet/etcd、容器逃逸、云身份绑定、集群持久化等 | cluster-admin、node root,或可用的云身份 | `/cloud-recon` `/post` `/privesc-linux` `/creds` |
+| CI/CD 与供应链 | `/cicd` | attack | Jenkins、GitHub Actions、GitLab/ADO、runner、依赖混淆、registry 投毒、OIDC等利用 | runner shell、部署控制,或可独立使用的新身份 | `/cloud-recon` `/privesc-linux` `/privesc-win` `/post` |
+| 钓鱼与客户端攻击 | `/phishing` | attack | ClickFix/FileFix、AiTM 会话、device code/OAuth、helpdesk 社工、文件投递等攻击 | host shell或foothold | `/shell` `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| Windows 提权 | `/privesc-win` | attack | Potato家族、令牌特权、服务/DLL/计划任务、UAC、内核LPE等方式 | Administrator(High IL)或NT AUTHORITY\SYSTEM | `/creds` `/post` `/ad-recon` `/tunnel` |
+| Linux 提权 | `/privesc-linux` | attack | sudo/GTFOBins、polkit、SUID/capabilities、systemd、危险组、内核LPE等方式 | uid=0 root shell | `/creds` `/post` `/k8s` `/cloud-recon` |
+| 凭据攻击 | `/creds` | factory | secret发现、离线破解、按策略喷洒、NetNTLM捕获与SMB relay、系统凭据收割 | 经校验的可用凭据 | `/ad-recon` `/cloud-recon` `/service-attack` `/privesc-win` `/privesc-linux` `/post` |
+| 后渗透与C2 | `/post` | post | 主机画像、host-native持久化、Sliver C2、定向收集外带、清理 | 所选目标已验证（回连/persist/loot/已还原） | `/tunnel` `/creds` `/ad-recon` `/cloud-recon` |
+| shell 稳定化 | `/shell` | support | 回连引导、Linux PTY、Windows ConPTY、监听管理、会话恢复、文件传输 | 可操作稳定会话 | `/privesc-win` `/privesc-linux` `/creds` `/post` |
+| 内网穿透 | `/tunnel` | support | ligolo-ng、chisel、GOST、原生转发、Dev Tunnels、多跳、备用传输 | 目标网段可达 | `/recon` `/service-attack` `/ad-recon` |
+| AV/EDR规避 | `/edr-bypass` | interceptor | 将被AV/EDR/AMSI/WDAC/PPL/内存/内核遥测的拦截变为可执行 | 被拦动作可执行 | 回原模块 |
 
 
 
