@@ -1,0 +1,26 @@
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 作战数据（公开仓库绝对不能有）
+notes.md
+loot/
+scans/
+scripts/
+*.kdbx
+*.pfx
+*.pem
+*.key
+.env
+
+# 本机 Claude 配置（每台机器不同）
+.claude/
