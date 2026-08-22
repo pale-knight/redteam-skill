@@ -141,11 +141,6 @@ skills/
 - **Python 3.x** — 运行 `bin/modules.py`、`bin/notes.py`
 - **Claude Code** — 本 Skill 面向 Claude Code 设计，模块经 `/slash` 命令调用
 
-### 安装
-
-    git clone https://github.com/pale-knight/redteam-skill.git
-​> 把18个模块、`shared/`和`bin/`移动到`~/.claude/skills/`skill的全局目录，`CLAUDE.md`放入每个项目目录。
-
 ### 目录层级
 
 **工作目录** 
@@ -168,8 +163,20 @@ skills/
 ├── edr/
 └── shell/
 ```
-> 详情见`shared/tools.md`.
+> 详情见`shared/tools.md`。
 
+### 安装
 
+    git clone https://github.com/pale-knight/redteam-skill.git
+​> 把18个模块、`shared/`和`bin/`移动到`~/.claude/skills/`skill的全局目录，`CLAUDE.md`放入每个项目目录。
+
+### 开始
+
+```text
+mkdir -p ~/ops/<target> && cd ~/ops/<target>
+cp CLAUDE.md ./CLAUDE.md
+```
+创建`notes.md`
+    python ~/.claude/skills/bin/notes.py init
 
 
