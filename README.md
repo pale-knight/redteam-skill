@@ -33,12 +33,14 @@
 
 此项目集成了绝大部分技能模块、最近工作中的高成功率利用链，以及 2025–2026 较新的技术路径，并会持续更新。
 
+为了缩短上下文，节约token。此项目将每一模块发现的重要发现和成果记录在`notes.md`中，当前模块结束时可由人工`/clear`清除上下文。在每一个模块开始时会自动读取`notes.md`中数据，以保证工作延续。
+
 <a id="项目架构"></a>
 ## 项目架构
 
 ### 基本架构
 
-18 个模块,每个模块为`SKILL.md`(判断基本方向)和一个 `references/`(详细操作文档)。
+18 个模块,每个模块为`SKILL.md`(判断基本方向)和一个`references/`(详细操作文档)。
 
 ```text
 CLAUDE.md                  # 全局规则,放进项目目录使用
@@ -150,7 +152,7 @@ skills/
 ├── notes.md                   # 工作记录
 └── scans/  loot/  scripts/    # 工作产出
 ```
-> 可以自己建立或者让AI自动创建.
+> 可以自己建立或者让AI自动创建。
 
 **工具目录**
 ```text
@@ -177,6 +179,7 @@ mkdir -p ~/ops/<target> && cd ~/ops/<target>
 cp CLAUDE.md ./CLAUDE.md
 ```
 创建`notes.md`
-    python ~/.claude/skills/bin/notes.py init
-
+```text
+python ~/.claude/skills/bin/notes.py init
+```
 
