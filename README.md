@@ -143,9 +143,10 @@ skills/
 
 ### 安装
 
-​```bash
+​​```bash
 git clone https://github.com/pale-knight/redteam-skill.git
-```
+cp -r redteam-skill/* ~/.claude/skills/
+​```
 
 > 18个模块、`shared/`和`bin/`移动到`~/.claude/skills/`skill的全局目录
 
