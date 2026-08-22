@@ -108,7 +108,7 @@ skills/
     ├── modules.py             # tail / list / show / check,模块控制和收尾
     └── notes.py               # init / validate,操作记录文件notes.md
 ```
-> `references/` 内共 158 份操作文档,按 `SKILL.md` 判断选择加载,不计入常驻上下文。
+> `references/`内共 158 份操作文档,按`SKILL.md` 判断选择加载,不计入常驻上下文。
 
 ### 模块介绍
 
@@ -184,17 +184,17 @@ python ~/.claude/skills/bin/notes.py init
 ```
 单次工作流程
 ```text
-人      /<model>
+操作者   /<model>
 AI      Read ./notes.md
         阅读SKILL.md
         走到对应流程，才读取对应的references/<file>.md
         做到本模块成功条件
-        需要人协助时 → 立刻停，说明需要做什么，等待回复
+        需要操作者协助时 → 立刻停，说明需要做什么，等待回复
         半路发现其他面 → 只记 notes，不跳模块
         追加 ./notes.md
         python ~/.claude/skills/bin/modules.py tail web-attack
         列1–3条候选（写清凭notes哪些记录）→ 停止
-人      根据当前情况选择路径，或/clear后再/model开始下一个模块
+操作者   根据当前情况选择路径，或/clear后再/model开始下一个模块
 ```
 
 ## 联系方式
@@ -204,6 +204,6 @@ AI      Read ./notes.md
 
 ## 免责声明
 
-本项目仅限用于合法的安全研究、教育、CTF 竞赛，以及对自有系统或已获得明确授权的目标进行测试。
+本项目仅限用于合法的安全研究、教育、靶场、HTB，以及对自有系统或已获得明确授权的目标进行测试。
 
 **严禁在未经授权的情况下访问、扫描、利用、干扰目标或获取数据。** 使用者须自行确保其行为符合适用法律法规及授权范围；因滥用本项目造成的任何损失或法律责任，均由使用者自行承担，项目维护者不承担相关责任。
