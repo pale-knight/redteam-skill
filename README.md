@@ -137,12 +137,15 @@ skills/
 
 ### 前置依赖
 
-- **Kali Linux** — 推荐环境，工具链默认按Kali路径和`shared/tools.md` 内容安装
+- **Kali Linux** — 推荐环境，工具链默认按Kali路径和 `shared/tools.md` 内容安装
 - **Python 3.x** — 运行 `bin/modules.py`、`bin/notes.py`
 - **Claude Code** — 本 Skill 面向 Claude Code 设计，模块经 `/slash` 命令调用
 
+### 安装
 
-
-
+​```bash
+git clone https://github.com/pale-knight/redteam-skill.git
+```
+> 18个模块、`shared/`和`bin/`移动到`~/.claude/skills/`skill的全局目录
 
 
