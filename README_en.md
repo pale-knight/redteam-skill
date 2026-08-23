@@ -192,7 +192,7 @@ AI         Read ./notes.md
            When operator assistance is needed → stop immediately, state what is needed, wait for reply
            On finding another surface mid-way → only note it, do not switch modules
            Append to ./notes.md
-           python ~/.claude/skills/bin/modules.py tail web-attack
+           python ~/.claude/skills/bin/modules.py tail <module>
            List 1–3 candidates (state which notes records they rest on) → stop
 Operator   Choose a path based on the current situation, or /clear then /module to start the next one
 ```
