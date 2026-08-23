@@ -184,7 +184,7 @@ python ~/.claude/skills/bin/notes.py init
 ```
 单次工作流程
 ```text
-操作者   /<model>
+操作者   /<module>
 AI      Read ./notes.md
         阅读SKILL.md
         走到对应流程，才读取对应的references/<file>.md
@@ -192,9 +192,9 @@ AI      Read ./notes.md
         需要操作者协助时 → 立刻停，说明需要做什么，等待回复
         半路发现其他面 → 只记 notes，不跳模块
         追加 ./notes.md
-        python ~/.claude/skills/bin/modules.py tail <model>
+        python ~/.claude/skills/bin/modules.py tail <module>
         列1–3条候选（写清凭notes哪些记录）→ 停止
-操作者   根据当前情况选择路径，或/clear后再/model开始下一个模块
+操作者   根据当前情况选择路径，或/clear后再/module开始下一个模块
 ```
 
 ## 联系方式
