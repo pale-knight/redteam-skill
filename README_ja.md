@@ -192,7 +192,7 @@ AI            Read ./notes.md
               オペレーターの補助が必要な時 → 直ちに停止し、何が必要か説明して返信を待つ
               途中で別の攻撃面を発見 → notes に記録するのみ、モジュールは切り替えない
               ./notes.md に追記
-              python ~/.claude/skills/bin/modules.py tail web-attack
+              python ~/.claude/skills/bin/modules.py tail <module>
               候補を 1〜3 件挙げる（notes のどの記録に基づくか明記）→ 停止
 オペレーター   現在の状況に応じて経路を選択、または /clear の後 /module で次のモジュールを開始
 ```
