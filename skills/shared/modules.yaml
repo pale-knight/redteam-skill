@@ -1,0 +1,138 @@
+# 安装位置：~/.claude/skills/shared/modules.yaml
+# 不要拷到作战目录。收尾：python ~/.claude/skills/bin/modules.py tail <模块>
+
+
+edr:
+  interceptor: true
+  after_success: return_origin
+  originating:
+    - web-attack
+    - ad-attack
+    - cloud-attack
+    - k8s
+    - cicd
+    - service-attack
+    - phishing
+    - privesc-win
+    - privesc-linux
+    - creds
+    - post
+    - shell
+
+no_cve:
+  - creds
+  - post
+  - shell
+  - tunnel
+  - edr-bypass
+
+modules:
+  recon:
+    kind: recon
+    success: 服务地图 + CVE 候选（candidate ≠ 已利用）
+    default_next: [web-recon, ad-recon, service-attack, phishing]
+    never_default: []
+
+  web-recon:
+    kind: recon
+    success: HTTP 攻击面卡片
+    default_next: [web-attack]
+    never_default: []
+
+  web-attack:
+    kind: attack
+    success: 服务器 shell 或等价 OS 执行
+    default_next: [shell, privesc-win, privesc-linux, creds, post]
+    never_default: []
+
+  ad-recon:
+    kind: recon
+    success: 路径/ACL/证书/LAPS 卡片
+    default_next: [ad-attack, creds]
+    never_default: []
+
+  ad-attack:
+    kind: attack
+    success: 这条 AD 链的目标身份 / DA / 主机 SYSTEM
+    default_next: [ad-recon, creds, post, privesc-win]
+    never_default: []
+    owns: [kerberoast, asrep, dcsync, rbcd, adcs-esc]
+
+  cloud-recon:
+    kind: recon
+    success: 云身份与信任图
+    default_next: [cloud-attack, k8s]
+    never_default: []
+
+  cloud-attack:
+    kind: attack
+    success: 更高云身份或能下发 OS 的 compute
+    default_next: [cloud-recon, k8s, post, ad-recon]
+    never_default: [cloud-attack]
+
+  k8s:
+    kind: attack
+    success: cluster-admin / node root / 可用云身份
+    default_next: [cloud-recon, post, privesc-linux, creds]
+    never_default: [cloud-attack]
+
+  cicd:
+    kind: attack
+    success: runner shell / 部署控制 / 真实云身份
+    default_next: [cloud-recon, privesc-linux, privesc-win, post]
+    never_default: [cloud-attack]
+
+  service-attack:
+    kind: attack
+    success: 该服务的权限或 shell
+    default_next: [shell, privesc-win, privesc-linux, creds, post]
+    never_default: []
+
+  phishing:
+    kind: attack
+    success: host shell 或等效可操作会话
+    default_next: [shell, privesc-win, privesc-linux, creds, post]
+    never_default: []
+
+  privesc-win:
+    kind: attack
+    success: Administrator High IL 或 NT AUTHORITY\\SYSTEM
+    default_next: [creds, post, ad-recon, tunnel]
+    never_default: [ad-attack]
+
+  privesc-linux:
+    kind: attack
+    success: uid=0 root shell
+    default_next: [creds, post, k8s, cloud-recon]
+    never_default: [cloud-attack]
+
+  creds:
+    kind: factory
+    success: 可用凭据（明文/NT/cookie/key），不横向
+    default_next: [ad-recon, cloud-recon, service-attack, privesc-win, privesc-linux, post]
+    never_default: [ad-attack, cloud-attack]
+    # LDAP/ADCS sink：仅操作者点名才建议 ad-attack
+
+  post:
+    kind: post
+    success: 所选目标已验证（回连 / persist / loot / 清）
+    default_next: [tunnel, creds, ad-recon, cloud-recon]
+    never_default: [ad-attack, cloud-attack]
+
+  shell:
+    kind: support
+    success: 可操作会话
+    default_next: [privesc-win, privesc-linux, creds, post]
+    never_default: []
+
+  tunnel:
+    kind: support
+    success: 指定网段/端口真的通
+    default_next: [recon, service-attack, ad-recon]
+    never_default: []
+
+  edr-bypass:
+    kind: interceptor
+    success: 被拦动作可执行，然后回原模块
+    default_next: []
+    never_default: []
